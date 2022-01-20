@@ -4,3 +4,11 @@ clear
 ls 
 cp customerCA.crt /opt/cloudhsm/etc/customerCA.crt
 sudo /opt/cloudhsm/bin/configure -a 10.0.2.181
+
+#connection to cloudHSM
+/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg
+
+#admin HSM
+aws-cloudhsm>  enable_e2e
+listUsers
+
