@@ -18,3 +18,33 @@ listUsers
 # Crypto Officer (CO) - manage users 
 # Crypto users (CU) - manipulate keys ,generate digest and HMACS
 # Applicance users - cloning and synchronization operation synchro HSM in an AWS cloudHSM cluster
+
+# -- AWS cloud HSM -change password
+/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg
+aws-cloudhsm>listUsers
+aws-cloudhsm>loginHSM PRECO admin password
+
+aws-cloudhsm>changePswd PRECO admin SuperPASSWORD
+aws-cloudhsm> logout
+
+# -- AWS cloud HSM -create USERS HSM 
+
+aws-cloudhsm>loginHSM PRECO admin SuperPASSWORD
+aws-cloudhsm>createUser CU ryan apassword
+
+# -- AWS cloud HSM -create Keys (as CU)
+sudo service cloudhsm-client start 
+Redirecting to /bin/systemctl start cloudhsm-client.service
+/opt/cloudhsm/bin/cloudhsm_mgmt_util
+
+
+#login
+loginHSM -u CU -s ryan -p apassword
+
+genSymKey -t 31 -s 32 -l aes256
+genRSAKeyPair -m 2048 -e 65537 -l rsa2048
+
+
+
+
+
