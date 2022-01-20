@@ -40,11 +40,20 @@ Redirecting to /bin/systemctl start cloudhsm-client.service
 
 #login
 loginHSM -u CU -s ryan -p apassword
-
+-- NB take some note of key Handle !!!!!!!!
 genSymKey -t 31 -s 32 -l aes256
 genRSAKeyPair -m 2048 -e 65537 -l rsa2048
 
 
+--- generate wrapping key
+genSymKey -t 31 -s 16 -ses -l export-wrapping-key
 
+exSymKey -k 6 -out aes256.kep.exp -w 7
+exportPrivateKey -k 22 -out rsa2048.key.exp -w 7
+--> export PEM formatted private key is written in rsa2048.key.exp
 
+exportPubKey -k 9 -out rsa2048.pub.exp
+--> export public 
+logout
+exit
 
