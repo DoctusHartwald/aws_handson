@@ -12,3 +12,9 @@ sudo /opt/cloudhsm/bin/configure -a 10.0.2.181
 aws-cloudhsm>  enable_e2e
 listUsers
 
+# AWS cloudHSM User management and generating exporting KEYS
+# Roles 
+# Precrypto officer (PRECO)
+# Crypto Officer (CO) - manage users 
+# Crypto users (CU) - manipulate keys 
+# Applicance users - cloning and synchronization operation synchro HSM in an AWS cloudHSM cluster
