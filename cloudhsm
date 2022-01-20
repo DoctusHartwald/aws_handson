@@ -16,5 +16,5 @@ listUsers
 # Roles 
 # Precrypto officer (PRECO)
 # Crypto Officer (CO) - manage users 
-# Crypto users (CU) - manipulate keys 
+# Crypto users (CU) - manipulate keys ,generate digest and HMACS
 # Applicance users - cloning and synchronization operation synchro HSM in an AWS cloudHSM cluster
