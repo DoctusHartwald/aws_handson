@@ -23,7 +23,7 @@ KMS
     
     openssl rand -out PlaintextKeyMaterial.bin 32 
     open rsault -encrypt \
-    -in PlaintextKeyMaterial.bin \
+    -in mysuperwrappingKey12354678 \
     -oaep \
     -inkey PublicKey.bin \
     -keyform DER \ 
