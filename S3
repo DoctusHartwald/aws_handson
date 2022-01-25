@@ -46,6 +46,7 @@ Transit gateway : use for hub spoke model architecture, peeering are not transit
 Ddos /WAF : use with shield free service protect AWS ELB , amazon cloudfront and route 53
 AWS shield protect against SYN/UDP flood,reflection attacks on L3/L4.
 
+AWS Certificate Manager : can use SSL certificate with both Load balancer and cloud front , a DNS CNAME will need to be added on route 53
 
 Athena - S3 queries
 Macie check PII S3 compliance etc 
