@@ -19,8 +19,20 @@ aws artifact
 KMS
     AES (decrypt on aws server side)
     using KMS
-    import key material 
+    import key material (ex: RSAEP_OAEP_SHA_1)
     
+    openssl rand -out PlaintextKeyMaterial.bin 32 
+    open rsault -encrypt \
+    -in PlaintextKeyMaterial.bin \
+    -oaep \
+    -inkey PublicKey.bin \
+    -keyform DER \ 
+    -pubin \
+    -out EncryptedKeyMaterial.bin
+    
+    
+    
+   
     
 cloudHSM setup
 security NACL security groups
