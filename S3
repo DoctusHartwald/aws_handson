@@ -17,6 +17,11 @@ aws artifact
 
 
 KMS
+    AES (decrypt on aws server side)
+    using KMS
+    import key material 
+    
+    
 cloudHSM setup
 security NACL security groups
 Session Manager
