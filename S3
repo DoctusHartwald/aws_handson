@@ -10,7 +10,7 @@ identity pool for aws credentials
 
 -cloud trail (API call on aws) cloud watch (performance)
 
-aws config
+aws config : log in S" bucket the current config of aws environnement (so that you can track the changes of it, using for example security HUB)
 AWS system manager => store confidential information in SSM and then use it by referencing these values by using their names in EC2,cloudformation ,Lambda, EC2 run command etc
 Secret manager : for storing database credentials , API, SSH Keys => Built-in with RDS
 SSM (system manager parameter)  store : passwords ,database strings ,licence code, parameter values ,configuration data => integrated with AWS System manager 
@@ -37,13 +37,14 @@ KMS
    
     
 cloudHSM setup
-security NACL security groups
-Session Manager
-VPC endpoint
+security NACL: protect a subnet and is stateless meaning any change applied to an incoming rule isn’t automatically applied to an outgoing rule
+security groups :protect EC2 instance stateful, which means any changes which are applied to an incoming rule is automatically applied to a rule which is outgoing.
+Session Manager : allow to interact with EC2 instance 
+VPC endpoint : allow for instance to connect VPC to S3 without going out of AWS network
 dns 
-Transit gateway
-Ddos /WAF
+Transit gateway : use for hub spoke model architecture, peeering are not transitive 
+Ddos /WAF : use with shield free service protect AWS ELB , amazon cloudfront and route 53
 
 Athena - S3 queries
 Macie check PII S3 compliance etc 
-security Hub
+security Hub : hub that allow full vision of athena ,macie,guard duty(ia) , iam access analyzer, firewall manager,3rd party tool . Can be plug then to cloudwatch => SIEM,SNS,chat etc
