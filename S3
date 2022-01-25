@@ -1,3 +1,30 @@
 
 # 30S S3 access- presigned url for the S3 with security token
 aws s3 presign s3://acloudgurupresigned/hello.txt --expires-in 300
+
+-- cognito user pool and identity pool 
+congnito act as identity broken handling all interaction with web providers
+cognito uses user pools to manage user sign-up and sign-in directly or via web identity providers
+user pool <-> (jwt) IDP Facebook, google Amazon 
+identity pool for aws credentials
+
+-cloud trail (API call on aws) cloud watch (performance)
+
+aws config
+AWS system manager
+secret manager 
+aws artifact 
+
+
+KMS
+cloudHSM setup
+security NACL security groups
+Session Manager
+VPC endpoint
+dns 
+Transit gateway
+Ddos /WAF
+
+Athena - S3 queries
+Macie check PII S3 compliance etc 
+security Hub
