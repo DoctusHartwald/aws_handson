@@ -9,8 +9,8 @@ user pool <-> (jwt) IDP Facebook, google Amazon
 identity pool for aws credentials
 
 -cloud trail (API call on aws) cloud watch (performance)
-
-aws config : log in S" bucket the current config of aws environnement (so that you can track the changes of it, using for example security HUB)
+cloud watch events can get cloud trail API  event and trigger out rules , targets (Lambda,SNS,SQS,kinesis streams etc)
+aws config : log in S3 bucket the current config of aws environnement (so that you can track the changes of it, using for example security HUB)
 AWS system manager => store confidential information in SSM and then use it by referencing these values by using their names in EC2,cloudformation ,Lambda, EC2 run command etc
 Secret manager : for storing database credentials , API, SSH Keys => Built-in with RDS
 SSM (system manager parameter)  store : passwords ,database strings ,licence code, parameter values ,configuration data => integrated with AWS System manager 
@@ -23,31 +23,20 @@ KMS
     using KMS
     import key material (ex: RSAEP_OAEP_SHA_1)
     
-    openssl rand -out PlaintextKeyMaterial.bin 32 
-    open rsault -encrypt \
-    -in mysuperwrappingKey12354678 \
-    -oaep \
-    -inkey PublicKey.bin \
-    -keyform DER \ 
-    -pubin \
-    -out EncryptedKeyMaterial.bin
-    
-    
-    
-   
-    
-cloudHSM setup
+CloudHSM setup
 security NACL: protect a subnet and is stateless meaning any change applied to an incoming rule isn’t automatically applied to an outgoing rule
 security groups :protect EC2 instance stateful, which means any changes which are applied to an incoming rule is automatically applied to a rule which is outgoing.
 Session Manager : allow to interact with EC2 instance 
 VPC endpoint : allow for instance to connect VPC to S3 without going out of AWS network
-dns 
+Dns 
 Transit gateway : use for hub spoke model architecture, peeering are not transitive 
 Ddos /WAF : use with shield free service protect AWS ELB , amazon cloudfront and route 53
 AWS shield protect against SYN/UDP flood,reflection attacks on L3/L4.
 
 AWS Certificate Manager : can use SSL certificate with both Load balancer and cloud front , a DNS CNAME will need to be added on route 53
+Nb: cant export certificate from AWS
 
+** other related services: **
 Athena - S3 queries
 Macie check PII S3 compliance etc 
 security Hub : hub that allow full vision of athena ,macie,guard duty(ia) , iam access analyzer, firewall manager,3rd party tool . Can be plug then to cloudwatch => SIEM,SNS,chat etc
