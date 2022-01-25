@@ -14,7 +14,7 @@ aws config
 AWS system manager => store confidential information in SSM and then use it by referencing these values by using their names in EC2,cloudformation ,Lambda, EC2 run command etc
 Secret manager : for storing database credentials , API, SSH Keys => Built-in with RDS
 SSM (system manager parameter)  store : passwords ,database strings ,licence code, parameter values ,configuration data => integrated with AWS System manager 
-aws artifact 
+aws artifact : central resource for compliance and security related information , evaluate your own architecture (cover of PCI-DSS and ISO 27001)
 EC2 run command : allow the system admin to manage large number of EC2
 
 
