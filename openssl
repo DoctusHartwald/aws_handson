@@ -1,3 +1,18 @@
+
+# AMS KMS import your own key use a S3 bucket 
+ openssl rand -out PlaintextKeyMaterial.bin 32 
+    open rsault -encrypt \
+    -in mysuperwrappingKey12354678 \
+    -oaep \
+    -inkey PublicKey.bin \
+    -keyform DER \ 
+    -pubin \
+    -out EncryptedKeyMaterial.bin
+    
+ aws s3 cp /home/ec2-user s3://acloudguru --recursive 
+    
+    
+
 openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
 
 openssl rsa -pubout -in private_key.pem  -out public_key.pem
