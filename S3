@@ -44,6 +44,8 @@ VPC endpoint : allow for instance to connect VPC to S3 without going out of AWS 
 dns 
 Transit gateway : use for hub spoke model architecture, peeering are not transitive 
 Ddos /WAF : use with shield free service protect AWS ELB , amazon cloudfront and route 53
+AWS shield protect against SYN/UDP flood,reflection attacks on L3/L4.
+
 
 Athena - S3 queries
 Macie check PII S3 compliance etc 
