@@ -65,3 +65,9 @@ cloud93
 yum update -y 
 yum install mysql -y 
 mysql -u cloud93 -p -h cloud93.cyykskdne08c.us-east-1.rds.amazonaws.com cloud93
+
+
+TP AWS Sytem Manager (parameter store)
+====================================
+store secret and configuration data (like password, url etc)
+
