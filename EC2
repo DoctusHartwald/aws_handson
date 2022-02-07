@@ -1,0 +1,67 @@
+
+TP : EC2  Basics 
+=================================
+chmod 400 MyNewKeyPair.pem 
+
+ ssh ec2-user@34.227.173.154 -i MyNewKeyPair.pem
+ 
+  sudo yum install -y https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/latest/linux_amd64/amazon-ssm-agent.rpm
+  
+   sudo status amazon-ssm-agent
+   sudo systemctl status amazon-ssm-agent
+   telnet ssm.us-east-1.amazonaws.com 443
+	#!/bin/bash  
+yum update -y
+yum install httpd -y
+echo "<html><body><h1>Hello Cloud Gurus</h1></body></html>" >/var/www/html/index.html
+systemctl start httpd
+systemctl enable httpd
+	
+	* Load key PuttyKey generator (in ppk)
+	SSH > Auth > private key file for authentification 
+	
+	https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html
+	
+
+TP Route53 /ALB
+===================== 
+provision route53 
+1/ register domain
+2/  create record for mapping A record (alias to application and classic load balancer)
+select the load balancer 
+
+
+ALB (register the instances and health check configure, NB:  edit security group )
+
+
+TP EC2 with S3 
+===================
+AmazonS3FullAccess
+AmazonSSMFullAccess
+
+AKIAZM72MYTKEFZO6B6NCZZZ
+xwlLEPcDJ8gHafVZOLBR0ts3CDr4FHibNp3KBpCdr
+
+aws s3 ls 
+aws s3 mb s3://superbucket-930606
+aws s3 ls 
+echo "test" > hello.txt
+aws s3 cp hello.txt s3://superbucket-930606
+aws s3 ls s3://superbucker-930606
+
+https://docs.aws.amazon.com/cli/latest/reference/
+
+AWS CLI Pagination
+--page-size 
+aws s3api list-objets --buckets my-buckets --page-size 100
+
+TP EC2 with S3 role lab 
+=======================
+attach IAM role to EC2 instance 
+
+TP install Mysql RDS
+==========================
+cloud93
+yum update -y 
+yum install mysql -y 
+mysql -u cloud93 -p -h cloud93.cyykskdne08c.us-east-1.rds.amazonaws.com cloud93
