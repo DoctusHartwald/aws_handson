@@ -1,0 +1,90 @@
+Lambda_function.py 
+============================
+from datetime import datetime
+import json
+import os
+import boto3
+
+dynamodb = boto3.resource('dynamodb')
+
+def lambda_handler(event, context):
+    # Count items in the Lambda event 
+    no_messages = str(len(event['Records']))
+    print("Found " +no_messages +" messages to process.")
+
+    for message in event['Records']:
+
+        print(message)
+
+        # Write message to DynamoDB
+        table = dynamodb.Table('Message')
+
+        response = table.put_item(
+            Item={
+                'MessageId': message['messageId'],
+                'Body': message['body'],
+                'Timestamp': datetime.now().isoformat()
+            }
+        )
+        print("Wrote message to DynamoDB:", json.dumps(response))
+        
+        
+    SQS Sending messages
+    on an EC2 instance try the following python script to mock the behavior of sending message
+    ====================
+    Connect to the EC2 instance as shown.
+    Run su - cloud_user.
+    Run ./send_message.py -q Messages -i 0.1
+    
+    ==========================
+    send_message.py 
+    ===========================
+    #!/usr/bin/env python3.7
+    # -*- coding: utf-8 -*-
+    import argparse
+    import logging
+    import sys
+    from time import sleep
+    import boto3
+    from faker import Faker
+
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--queue-name", "-q", required=True,
+                        help="SQS queue name")
+    parser.add_argument("--interval", "-i", required=True,
+                        help="timer interval", type=float)
+    parser.add_argument("--message", "-m", help="message to send")
+    parser.add_argument("--log", "-l", default="INFO",
+                        help="logging level")
+    args = parser.parse_args()
+
+    if args.log:
+        logging.basicConfig(
+            format='[%(levelname)s] %(message)s', level=args.log)
+
+    else:
+        parser.print_help(sys.stderr)
+
+    sqs = boto3.client('sqs')
+
+    response = sqs.get_queue_url(QueueName=args.queue_name)
+
+    queue_url = response['QueueUrl']
+
+    logging.info(queue_url)
+
+    while True:
+        message = args.message
+        if not args.message:
+            fake = Faker()
+            message = fake.text()
+
+        logging.info('Sending message: ' + message)
+
+        response = sqs.send_message(
+            QueueUrl=queue_url, MessageBody=message)
+
+        logging.info('MessageId: ' + response['MessageId'])
+        sleep(args.interval)
+
