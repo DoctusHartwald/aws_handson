@@ -1,1 +1,19 @@
 https://DNS.auth.us-east-1.amazoncognito.com/confirm?response_type=token&client_id=6squ6okia9scauuku8qcpom6p1&redirect_uri=https://example.com
+
+create IAM user with AdministratorAccess
+aws configure 
+
+1) Create facts table:
+**** (use ^ - Shift + 6 if you are a windows user, not \) ****
+
+aws dynamodb create-table --table-name facts --attribute-definitions \
+AttributeName=fact_id,AttributeType=N --key-schema \
+AttributeName=fact_id,KeyType=HASH \
+--provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
+
+
+2) Populate facts table:
+**** (make sure items.json is in your working directory) ****
+
+aws dynamodb batch-write-item --request-items file://items.json
+
