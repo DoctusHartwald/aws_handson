@@ -3,6 +3,10 @@ https://DNS.auth.us-east-1.amazoncognito.com/confirm?response_type=token&client_
 create IAM user with AdministratorAccess
 aws configure 
 
+
+hands On https://github.com/ACloudGuru-Resources/course-aws-certified-developer-associate/tree/main/Cognito_Demo
+
+
 1) Create facts table:
 **** (use ^ - Shift + 6 if you are a windows user, not \) ****
 
