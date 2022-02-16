@@ -26,12 +26,16 @@
   ]
 }
 
+Manage group  permissions (create an assume Role )
+-> custom policy 
+===> Inline policy
+
 https://aws.amazon.com/fr/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console/
 {
   "Version": "2012-10-17",
   "Statement": [{
     "Effect": "Allow",
     "Action": ["sts:AssumeRole"],
-    "Resource": "arn:aws:iam::Prod-account-ID:role/CrossAccountSignin"
+    "Resource": "arn:aws:iam::Prod-account-ID:role/MyDeveloppersAccess"
   }]
 }
