@@ -7,6 +7,12 @@ index.html
 
 <div id="get-html-from-other-s3"></div>
 
+<script>
+$("#get-html-from-other-s3").load("<MYDNS>/loadpage.html")
+</script>
+
+
+
 loadPage.html
 ===============================
 <h2>The Page Has Loaded Successfully Cloud Gurus!!</h2></body></html>
