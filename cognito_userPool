@@ -36,9 +36,12 @@ aws cognito-identity set-identity-pool-roles \
 --roles unauthenticated=arn:aws:iam::xxxxx:role/Cognito_DynamoPoolUnauthRole --output json
 
 6) Double check it worked using: 
+--->Nb:  this step check if the identity poolId is correctly associate to Role IAM associate with read dynamoDB
 
 aws cognito-identity get-identity-pool-roles  --identity-pool-id "us-east-1:xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
+
+==> Back to the application : 
 7) We can now specify the Cognito credentials in our application - i.e. in the JavaScript section of our webpage!
 Replace the identity pool ID with your own and the role ARN with your own role ARN. 
 We are going to add this snippet to our index.html:
