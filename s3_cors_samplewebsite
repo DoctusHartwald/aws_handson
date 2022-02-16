@@ -11,6 +11,10 @@ loadPage.html
 ===============================
 <h2>The Page Has Loaded Successfully Cloud Gurus!!</h2></body></html>
 
+error.html
+===================================================
+<html><head><title>Hello Cloud Gurus</title></head><body><h1>Hello Cloud Gurus</h1><h2>There has been an error...</h2></body></html>
+
 
 sampleCorsConfiguration.txt
 ================================
